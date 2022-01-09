@@ -15,8 +15,8 @@ import java.util.List;
 public class UserController {
     private UserService  userService;
     @GetMapping("/list")
-    public List<UserEntity> getList(){
+    public ResponseEntity<List<UserEntity>> getList(){
         List<UserEntity> entityList=userService.userList();
-        return entityList;
+        return new ResponseEntity<List<UserEntity>>(entityList, HttpStatus.OK);
     }
 }
